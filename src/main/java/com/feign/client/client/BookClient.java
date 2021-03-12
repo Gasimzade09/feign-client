@@ -12,7 +12,7 @@ import java.util.List;
 public interface BookClient {
 
     @RequestMapping(method = RequestMethod.GET)
-    ResponseEntity<List> getBook();
+    ResponseEntity<List<Object>> getBook();
 
     @RequestMapping(method = RequestMethod.GET, value = "/{isbn}")
     ResponseEntity<Object> getOne(@PathVariable("isbn") String isbn);

@@ -11,7 +11,7 @@ import java.util.List;
 public class BookClientFallback implements BookClient {
 
     @Override
-    public ResponseEntity<List> getBook() {
+    public ResponseEntity<List<Object>> getBook() {
         return null;
     }
 
