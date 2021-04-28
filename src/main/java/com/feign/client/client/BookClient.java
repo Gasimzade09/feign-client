@@ -1,19 +1,20 @@
 package com.feign.client.client;
 
+import feign.Param;
+import feign.RequestLine;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
 
-@FeignClient(name = "data", url = "${feign.client.url}")
+@FeignClient(name = "data", url = "/")
 public interface BookClient {
 
     @RequestMapping(method = RequestMethod.GET)
-    ResponseEntity<List<Object>> getBook();
+    List<Object> getBook();
 
-    @RequestMapping(method = RequestMethod.GET, value = "/{isbn}")
-    ResponseEntity<Object> getOne(@PathVariable("isbn") String isbn);
+    @GetMapping
+    String getOne(URI uri);
 }

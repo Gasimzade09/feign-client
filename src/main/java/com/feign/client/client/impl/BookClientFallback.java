@@ -5,18 +5,20 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
+import java.net.URI;
 import java.util.List;
 
 @Component
 public class BookClientFallback implements BookClient {
 
+
     @Override
-    public ResponseEntity<List<Object>> getBook() {
+    public List<Object> getBook() {
         return null;
     }
 
     @Override
-    public ResponseEntity<Object> getOne(String isbn) {
+    public String getOne(URI uri) {
         return null;
     }
 }
